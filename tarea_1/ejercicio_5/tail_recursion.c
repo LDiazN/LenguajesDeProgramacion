@@ -6,6 +6,7 @@
 // beta  = ((Z + Y) % 5) + 3 = 5
 #include <stdio.h>
 #include <assert.h>
+#include <time.h>
 
 int f_aux_tail(int n1, int n2, int n3, int n4, int i, int target) {
     // asumiendo n >= 20
@@ -31,9 +32,15 @@ int f_tail (int n){
 
 int main() {
 
-    int input = 100;
+    int input = 100000;
+    clock_t t;
+    t = clock();
     int x = f_tail(input);
+    t = clock() - t;
+    double ellapsed = ((double) t) / CLOCKS_PER_SEC;
+
     printf("tail recursive: %d, input: %d\n", x, input);
+    printf("time: %f\n",ellapsed);
 
     return 0;
 }

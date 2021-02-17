@@ -6,6 +6,7 @@
 // beta  = ((Z + Y) % 5) + 3 = 5
 #include <stdio.h>
 #include <assert.h>
+#include <time.h>
 
 int f_iterative(int n) {
     if (n < 20) return n;
@@ -37,9 +38,15 @@ int f_iterative(int n) {
 
 int main() {
 
-    int input = 100;
+    int input = 100000;
+    clock_t t;
+    t = clock();
     int x = f_iterative(input);
+    t = clock() - t;
+    double ellapsed = ((double) t) / CLOCKS_PER_SEC;
+
     printf("iterative: %d, input: %d\n",x, input);
+    printf("time: %f\n",ellapsed);
 
     return 0;
 }
