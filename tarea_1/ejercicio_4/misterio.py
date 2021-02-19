@@ -10,5 +10,12 @@ def misterio(p):
         acum += [p]
     for m in misterio(acum):
         yield m
-for p in misterio([1]):
-    print(p)
+
+def suspenso():
+    for l in misterio([1]):
+        for i in l:
+            yield i
+
+for i in suspenso():
+    print(i)
+    input()
