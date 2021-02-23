@@ -8,11 +8,11 @@
 #include <assert.h>
 #include <time.h>
 
-int f_recursive(int n) {
+long long f_recursive(long long n) {
     if (0 <= n && n < 20) return n;
 
-    int sum = 0;
-    int i = 0;
+    long long sum = 0;
+    long long i = 0;
     sum +=  f_recursive(n - 5)  + 
             f_recursive(n - 10) + 
             f_recursive(n - 15) +
@@ -23,13 +23,13 @@ int f_recursive(int n) {
 
 int main() {
 
-    int input = 100;
+    long long input = 100;
     clock_t t;
     t = clock();
-    int x = f_recursive(input);
+    long long x = f_recursive(input);
     t = clock() - t;
     double ellapsed = ((double) t) / CLOCKS_PER_SEC;
-    printf("recursive: %d, input: %d\n", x, input);
+    printf("recursive: %lld, input: %lld\n", x, input);
     printf("time: %f\n",ellapsed);
     
     return 0;
